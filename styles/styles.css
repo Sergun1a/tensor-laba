@@ -242,8 +242,16 @@ body {
 .button_update {
    background-color: darkgreen;
    border-radius: 8px;
-   margin: 5px 5px 5px 5px;
+   margin: 5px 5px 10px 5px;
    padding: 5px 5px 5px 5px;
    color: white;
    align-content: flex-end;
+}
+
+.raise:hover,
+.raise:focus {
+   box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+   transform: translateY(-0.25em);
+   background-color: black;
+   color: white;
 }
