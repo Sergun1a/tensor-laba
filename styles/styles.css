@@ -8,6 +8,7 @@ body {
    align-items: center;
    margin-top: 10px;
    margin-bottom: 30px;
+   padding: 64px 10px 80px;
 }
 
 .header__title {
@@ -219,4 +220,30 @@ body {
    height: 40px;
    font-size: 20px;
    margin: auto;
+}
+
+.logo {
+   /* Auto Layout */
+
+   display: flex;
+   flex-direction: column;
+   align-items: flex-start;
+   padding: 64px 10px 80px;
+
+   position: absolute;
+   width: 800px;
+   height: 185px;
+   left: 320px;
+   top: 0px;
+
+   background: #FFFFFF;
+}
+
+.button_update {
+   background-color: darkgreen;
+   border-radius: 8px;
+   margin: 5px 5px 5px 5px;
+   padding: 5px 5px 5px 5px;
+   color: white;
+   align-content: flex-end;
 }

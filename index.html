@@ -1,66 +1,70 @@
-
+<!-- для запуска json-servera: "json-server --watch db.json" -->
 <!DOCTYPE html>
+
 <html lang="ru">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="keywords" content="котики, котейки, кицы">
-      <meta name="author" content="Andrey Ivanov">
-      <title>Котики!</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="./styles/normalize.css">
-      <link rel="stylesheet" href="./styles/styles.css">
-      <script src="./script/main.js" defer></script>
-   </head>
-   <body>
-      <div class="container">
-         <header class="header">
-            <img src="./src/cat-icon.png" alt="" class="header__icon">
-            <h1 class="header__title">Котики</h1>
-         </header>
-         <body>
-            <section class="kitties"></section>
-         </body>
-      </div>
-      <template id="kittyTemplate">
-         <article class="kitty">
-            <a href="#" class="button button_edit"></a>
-            <a href="#" class="button button_delete"></a>
-            <img src="" alt="" class="kitty__image">
-            <h3 class="kitty__name"> </h3>
-            <p class="kitty__info"></p>
-         </article>
-      </template>
-      <div id="kittyPopup" class="overlay">
-         <div class="popup">
-            <h2>Введите информацию о котике</h2>
-            <a class="popup__close" href="#">&times;</a>
-            <form class="kitty-form">
-               <div class="form-group">
-                  <label class="form-group__label" for="name">Имя: </label>
-                  <div class="form-group__container">
-                     <input name="name" class="form-group__input" type="text" minlength="2" required />
-                     <span class="form-group__input-error"></span>
-                  </div>
-               </div>
-               <div class="form-group">
-                  <label class="form-group__label" for="about">О котике: </label>
-                  <div class="form-group__container">
-                     <input name="about" class="form-group__input" type="text" minlength="10" required />
-                     <span class="form-group__input-error"></span>
-                  </div>
-               </div>
-               <div class="form-group">
-                  <label class="form-group__label" for="url">URL фото котика: </label>
-                  <div class="form-group__container">
-                     <input name="url" class="form-group__input" type="url" required />
-                     <span class="form-group__input-error"></span>
-                  </div>
-               </div>
-               <div class="form-group">
-                  <button class="my-form__submit" type="submit">Отправить</button>
-               </div>
-            </form>
-         </div>
-      </div>
-   </body>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="keywords" content="котики, котейки, кицы">
+    <meta name="author" content="">
+    <title>Tensor school</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/normalize.css">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script src="./script/main.js" defer></script>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <img class="header__icon" src="./src/tensor-logo.png" alt="" style="position: static;width: 41px;height: 41px;left: 0px;top: 0px;">
+        <h1 class="header__title" style="position: static;width: 180px;height: 31px;left: 53px;top: 5px;font-family: TensorFont;
+font-style: normal;font-weight: bold;font-size: 24px;line-height: 31px;flex: none;order: 1;flex-grow: 0;---margin: 0px 12px;">
+            Tensor school</h1>
+    </header>
+    <body>
+    <button class="button_update">+ Новый студент</button>
+    <section class="kitties"></section>
+    </body>
+</div>
+<template id="kittyTemplate">
+    <article class="kitty">
+        <a href="#" class="button button_edit"></a>
+        <a href="#" class="button button_delete"></a>
+        <img src="" alt="" class="kitty__image">
+        <h3 class="kitty__name"></h3>
+        <p class="kitty__info"></p>
+    </article>
+</template>
+<div id="kittyPopup" class="overlay">
+    <div class="popup">
+        <h2>Введите информацию о котике</h2>
+        <a class="popup__close" href="#">&times;</a>
+        <form class="kitty-form">
+            <div class="form-group">
+                <label class="form-group__label" for="name">Имя: </label>
+                <div class="form-group__container">
+                    <input name="name" class="form-group__input" type="text" minlength="2" required/>
+                    <span class="form-group__input-error"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-group__label" for="about">О котике: </label>
+                <div class="form-group__container">
+                    <input name="about" class="form-group__input" type="text" minlength="10" required/>
+                    <span class="form-group__input-error"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-group__label" for="url">URL фото котика: </label>
+                <div class="form-group__container">
+                    <input name="url" class="form-group__input" type="url" required/>
+                    <span class="form-group__input-error"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <button class="my-form__submit" type="submit">Отправить</button>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
 </html>
