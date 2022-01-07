@@ -25,11 +25,11 @@ body {
    padding: 0 10px;
 }
 
-.kitties {
+.students {
    display: grid;
 }
 
-.kitty {
+.student {
    position: relative;
    display: flex;
    flex-direction: column;
@@ -38,19 +38,19 @@ body {
    margin-bottom: 20px;
 }
 
-.kitty__image {
+.student__image {
    width: 100%;
    height: 70%;
    object-fit: cover;
    margin-bottom: 16px;
 }
 
-.kitty__name {
+.student__name {
    margin: 0;
    margin-bottom: 16px;
 }
 
-.kitty__info {
+.student__info {
    margin: 0;
    display: -webkit-box;
    -webkit-line-clamp: 3;
@@ -92,13 +92,13 @@ body {
       padding: 0 30px;
    }
 
-   .kitties {
+   .students {
       grid-template-columns: 1fr 1fr;
       gap: 20px;
    }
 
-   .kitty:hover .button_delete,
-   .kitty:hover .button_edit {
+   .student:hover .button_delete,
+   .student:hover .button_edit {
       display: block;
    }
 }
@@ -109,7 +109,7 @@ body {
       padding: 0 30px;
    }
 
-   .kitties {
+   .students {
       grid-template-columns: 1fr 1fr 1fr;
       gap: 30px;
    }
@@ -173,7 +173,7 @@ body {
    }
 }
 
-.kitty-form {
+.student-form {
    display: flex;
    flex-direction: column;
 }

@@ -22,23 +22,23 @@ font-style: normal;font-weight: bold;font-size: 24px;line-height: 31px;flex: non
     </header>
     <body>
     <button class="raise button_update">+ Новый студент</button>
-    <section class="kitties"></section>
+    <section class="students"></section>
     </body>
 </div>
-<template id="kittyTemplate">
-    <article class="kitty">
+<template id="studentTemplate">
+    <article class="student">
         <a href="#" class="button button_edit"></a>
         <a href="#" class="button button_delete"></a>
-        <img src="" alt="" class="kitty__image">
-        <h3 class="kitty__name"></h3>
-        <p class="kitty__info"></p>
+        <img src="" alt="" class="student__image">
+        <h3 class="student__name"></h3>
+        <p class="student__info"></p>
     </article>
 </template>
-<div id="kittyPopup" class="overlay">
+<div id="studentPopup" class="overlay">
     <div class="popup">
         <h2>Введите информацию о котике</h2>
         <a class="popup__close" href="#">&times;</a>
-        <form class="kitty-form">
+        <form class="student-form">
             <div class="form-group">
                 <label class="form-group__label" for="name">Имя: </label>
                 <div class="form-group__container">

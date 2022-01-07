@@ -75,13 +75,13 @@ class Form {
     }
 }
 
-const $kittiesSection = document.querySelector('.kitties');
-const $kittyTemplate = document.querySelector('#kittyTemplate').content;
-const $popup = document.querySelector('#kittyPopup');
-const $kittyButton = document.querySelector('.header__icon');
+const $studentsSection = document.querySelector('.students');
+const $studentTemplate = document.querySelector('#studentTemplate').content;
+const $popup = document.querySelector('#studentPopup');
+const $studentButton = document.querySelector('.header__icon');
 const $popupCloseButton = document.querySelector('.popup__close');
-const kittyApi = new Api('http://localhost:3000/kitties', {'Content-Type': 'application/json'});
-const kittyForm = new Form(document.querySelector('.kitty-form'));
+const studentApi = new Api('http://localhost:3000/students', {'Content-Type': 'application/json'});
+const studentForm = new Form(document.querySelector('.student-form'));
 
 const showPopup = () => {
     $popup.classList.add('opened');
@@ -89,31 +89,33 @@ const showPopup = () => {
 
 const hidePopup = () => {
     $popup.classList.remove('opened');
-    kittyForm.closeForm();
+    studentForm.closeForm();
 }
 
 const renderList = (data) => {
-    $kittiesSection.innerHTML = '';
-    data.forEach(renderItem)
+    $studentsSection.innerHTML = '';
+    if (data != null) {
+        data.forEach(renderItem);
+    }
 };
 
 const renderItem = (item) => {
-    const $kittyEl = $kittyTemplate.cloneNode(true);
-    const $kittyImg = $kittyEl.querySelector('.kitty__image');
-    const $buttonDelete = $kittyEl.querySelector('.button_delete');
-    const $buttonEdit = $kittyEl.querySelector('.button_edit');
+    const $studentEl = $studentTemplate.cloneNode(true);
+    const $studentImg = $studentEl.querySelector('.student__image');
+    const $buttonDelete = $studentEl.querySelector('.button_delete');
+    const $buttonEdit = $studentEl.querySelector('.button_edit');
     const $buttonCreate = document.querySelector('.button_update');
 
-    $kittyEl.querySelector('.kitty__name').textContent = item.name;
-    $kittyEl.querySelector('.kitty__info').textContent = item.about;
-    $kittyImg.setAttribute('src', item.avatarUrl);
-    $kittyImg.setAttribute('alt', item.name);
+    $studentEl.querySelector('.student__name').textContent = item.name;
+    $studentEl.querySelector('.student__info').textContent = item.about;
+    $studentImg.setAttribute('src', item.avatarUrl);
+    $studentImg.setAttribute('alt', item.name);
 
-    $kittiesSection.appendChild($kittyEl);
+    $studentsSection.appendChild($studentEl);
 
     $buttonCreate.addEventListener('click', (event) => {
         showPopup();
-        kittyForm.init((event) => {
+        studentForm.init((event) => {
             event.preventDefault();
             const data = {
                 name: event.target.elements[0].value,
@@ -121,8 +123,8 @@ const renderItem = (item) => {
                 avatarUrl: event.target.elements[2].value
             };
 
-            kittyApi.createItem(data).then(() => {
-                kittyApi.getItems().then((data) => renderList(data));
+            studentApi.createItem(data).then(() => {
+                studentApi.getItems().then((data) => renderList(data));
                 hidePopup();
             });
         });
@@ -132,14 +134,14 @@ const renderItem = (item) => {
     $buttonDelete.addEventListener('click', (event) => {
         event.preventDefault();
 
-        kittyApi.deleteItem(item.id).then(() => {
-            event.target.closest('.kitty')?.remove?.();
+        studentApi.deleteItem(item.id).then(() => {
+            event.target.closest('.student')?.remove?.();
         });
     });
 
     $buttonEdit.addEventListener('click', (event) => {
         showPopup();
-        kittyForm.init((event) => {
+        studentForm.init((event) => {
             event.preventDefault();
             const data = {
                 id: item.id,
@@ -148,8 +150,8 @@ const renderItem = (item) => {
                 avatarUrl: event.target.elements[2].value
             };
 
-            kittyApi.updateItem(item.id, data).then(() => {
-                kittyApi.getItems().then((data) => renderList(data));
+            studentApi.updateItem(item.id, data).then(() => {
+                studentApi.getItems().then((data) => renderList(data));
                 hidePopup();
             });
         }, {
@@ -161,11 +163,11 @@ const renderItem = (item) => {
 }
 
 
-kittyApi.getItems().then((data) => renderList(data));
+studentApi.getItems().then((data) => renderList(data));
 
-$kittyButton.addEventListener('click', () => {
+$studentButton.addEventListener('click', () => {
     showPopup();
-    kittyForm.init((event) => {
+    studentForm.init((event) => {
         event.preventDefault();
         const data = {
             name: event.target.elements[0].value,
@@ -173,8 +175,8 @@ $kittyButton.addEventListener('click', () => {
             avatarUrl: event.target.elements[2].value
         };
 
-        kittyApi.createItem(data).then(() => {
-            kittyApi.getItems().then((data) => renderList(data));
+        studentApi.createItem(data).then(() => {
+            studentApi.getItems().then((data) => renderList(data));
             hidePopup();
         });
     });
