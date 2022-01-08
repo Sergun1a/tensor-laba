@@ -1,6 +1,6 @@
 # Подключение к бд.
-DB_NAME = 'students_bd'
-DB_USER = 'root'
+DB_NAME = 'students_db'
+DB_USER = 'postgres'
 DB_PASS = 'root'
 DB_HOST = 'localhost'
 DB_PORT = 5432

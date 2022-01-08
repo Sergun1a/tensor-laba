@@ -94,17 +94,15 @@ const hidePopup = () => {
 
 const renderList = (data) => {
     $studentsSection.innerHTML = '';
-    if (data != null) {
-        data.forEach(renderItem);
-    }
+    data.forEach(renderItem);
 };
+const $buttonCreate = document.querySelector('.button_update');
 
 const renderItem = (item) => {
     const $studentEl = $studentTemplate.cloneNode(true);
     const $studentImg = $studentEl.querySelector('.student__image');
     const $buttonDelete = $studentEl.querySelector('.button_delete');
     const $buttonEdit = $studentEl.querySelector('.button_edit');
-    const $buttonCreate = document.querySelector('.button_update');
 
     $studentEl.querySelector('.student__name').textContent = item.name;
     $studentEl.querySelector('.student__info').textContent = item.about;
@@ -112,24 +110,6 @@ const renderItem = (item) => {
     $studentImg.setAttribute('alt', item.name);
 
     $studentsSection.appendChild($studentEl);
-
-    $buttonCreate.addEventListener('click', (event) => {
-        showPopup();
-        studentForm.init((event) => {
-            event.preventDefault();
-            const data = {
-                name: event.target.elements[0].value,
-                about: event.target.elements[1].value,
-                avatarUrl: event.target.elements[2].value
-            };
-
-            studentApi.createItem(data).then(() => {
-                studentApi.getItems().then((data) => renderList(data));
-                hidePopup();
-            });
-        });
-
-    })
 
     $buttonDelete.addEventListener('click', (event) => {
         event.preventDefault();
@@ -162,6 +142,24 @@ const renderItem = (item) => {
     });
 }
 
+
+$buttonCreate.addEventListener('click', (event) => {
+    showPopup();
+    studentForm.init((event) => {
+        event.preventDefault();
+        const data = {
+            name: event.target.elements[0].value,
+            about: event.target.elements[1].value,
+            avatarUrl: event.target.elements[2].value
+        };
+
+        studentApi.createItem(data).then(() => {
+            studentApi.getItems().then((data) => renderList(data));
+            hidePopup();
+        });
+    });
+
+})
 
 studentApi.getItems().then((data) => renderList(data));
 

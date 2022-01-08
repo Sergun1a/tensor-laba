@@ -25,7 +25,7 @@ app.add_middleware(
 
 
 @app.get('/students')
-def kitties_list():
+def students_list():
     """
     Получение списка студентов.
     """
@@ -44,7 +44,7 @@ def kitties_list():
 @app.post('/students/')
 def create(payload: Student):
     """
-    Создание карточки кошки.
+    Создание карточки студента.
     """
     sql = """
         insert into students (name, description, photo_url)
@@ -61,7 +61,7 @@ def create(payload: Student):
 @app.put('/students/{id}')
 def update(id: int, payload: Student):
     """
-    Обновление карточки кошки.
+    Обновление карточки студента.
     """
     sql = """
         update students
@@ -80,9 +80,9 @@ def update(id: int, payload: Student):
 @app.delete('/students/{id}')
 def delete(id: int):
     """
-    Удаление карточки кошки.
+    Удаление карточки студента.
     """
-    sql = 'delete from cat where id = %s::int'
+    sql = 'delete from students where id = %s::int'
     db_helper.execute_query(sql, id)
 
 
